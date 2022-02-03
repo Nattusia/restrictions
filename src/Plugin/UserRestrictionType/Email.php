@@ -30,7 +30,7 @@ class Email extends UserRestrictionTypeBase {
     $this->mail = $data['mail'];
     $restriction = parent::matchesValue($this->mail);
     if ($restriction) {
-      $this->logger->notice('Restricted email %mail matching %restriction has been blocked.', ['%mail' => $this->mail, '%restriction' => $restriction->toLink($restriction->label(), 'edit-form')]);
+      $this->logger->notice('Restricted email %mail matching %restriction has been blocked.', ['%mail' => $this->mail, '%restriction' => $restriction->toLink($restriction->label(), 'edit-form')->toString()]);
     }
     return $restriction;
   }
